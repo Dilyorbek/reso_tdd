@@ -141,7 +141,7 @@ void main() {
     final NumberTrivia tNumberTrivia = tNumberTriviModel;
     test(
       "should check if the device online",
-          () async {
+      () async {
         when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
 
         repository.getRandomNumberTrivia();
@@ -153,7 +153,7 @@ void main() {
     runTestOnline(() {
       test(
         'should return remote data when the call remote data source is successful',
-            () async {
+        () async {
           when(mockRemoteDataSource.getRandomNumberTrivia()).thenAnswer((_) async => tNumberTriviModel);
 
           final result = await repository.getRandomNumberTrivia();
@@ -166,7 +166,7 @@ void main() {
 
       test(
         'should cache  data locally when the call remote data source is success',
-            () async {
+        () async {
           when(mockRemoteDataSource.getRandomNumberTrivia()).thenAnswer((_) async => tNumberTriviModel);
 
           await repository.getRandomNumberTrivia();
@@ -178,7 +178,7 @@ void main() {
 
       test(
         'should return server failure  when the call remote data source is unsuccessful',
-            () async {
+        () async {
           when(mockRemoteDataSource.getRandomNumberTrivia()).thenThrow(ServerException());
 
           final result = await repository.getRandomNumberTrivia();
@@ -194,7 +194,7 @@ void main() {
     runTestOffline(() {
       test(
         'should return last locally cached data when the cached data is present',
-            () async {
+        () async {
           when(mockLocalDataSource.getLastNumberTrivia()).thenAnswer((_) async => tNumberTriviModel);
 
           final result = await repository.getRandomNumberTrivia();
@@ -207,7 +207,7 @@ void main() {
 
       test(
         'should return CachedFailure when the there is noo cached data is present',
-            () async {
+        () async {
           when(mockLocalDataSource.getLastNumberTrivia()).thenThrow(CacheException());
 
           final result = await repository.getRandomNumberTrivia();

@@ -27,8 +27,8 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
     return await _getTrivia(() => remoteDataSource.getRandomNumberTrivia());
   }
 
-  Future<Either<Failure, NumberTrivia>> _getTrivia(_ConcreteOrRandomChooser getConcreteOrRandom) async{
-    if(await networkInfo.isConnected) {
+  Future<Either<Failure, NumberTrivia>> _getTrivia(_ConcreteOrRandomChooser getConcreteOrRandom) async {
+    if (await networkInfo.isConnected) {
       try {
         final remoteTrivia = await getConcreteOrRandom();
         localDataSource.cacheNumberTrivia(remoteTrivia);
