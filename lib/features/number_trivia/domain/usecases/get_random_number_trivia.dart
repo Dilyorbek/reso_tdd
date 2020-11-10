@@ -1,11 +1,10 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:reso_tdd/core/error/failures.dart';
 import 'package:reso_tdd/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:reso_tdd/features/number_trivia/domain/repositories/number_trivia_repository.dart';
 import 'package:reso_tdd/features/number_trivia/domain/usecases/usecase.dart';
 
-class GetRandomNumberTrivia implements UseCase<NumberTrivia,NoParams> {
+class GetRandomNumberTrivia implements UseCase<NumberTrivia, NoParams> {
   final NumberTriviaRepository repository;
 
   GetRandomNumberTrivia(this.repository);
@@ -14,5 +13,4 @@ class GetRandomNumberTrivia implements UseCase<NumberTrivia,NoParams> {
   Future<Either<Failure, NumberTrivia>> call(NoParams params) async {
     return await repository.getRandomNumberTrivia();
   }
-  
 }
