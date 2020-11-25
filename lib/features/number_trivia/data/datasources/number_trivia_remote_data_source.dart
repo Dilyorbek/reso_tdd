@@ -22,7 +22,6 @@ class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
   @override
   Future<NumberTriviaModel> getRandomNumberTrivia() => _getTriviaFromUrl('${BASE_URL}random');
 
-
   Future<NumberTriviaModel> _getTriviaFromUrl(String url) async {
     final response = await client.get(
       url,
