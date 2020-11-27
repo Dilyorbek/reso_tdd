@@ -30,7 +30,7 @@ void main() {
     );
 
     test(
-      'should return a valid model when the JSON number is an double',
+      'should return a valid model when the JSON number is a double',
       () async {
         final Map<String, dynamic> jsonMap = json.decode(fixture('trivia_double.json'));
 

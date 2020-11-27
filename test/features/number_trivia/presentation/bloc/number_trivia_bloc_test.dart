@@ -72,7 +72,6 @@ void main() {
       },
       act: (bloc) => bloc.add(GetTriviaForConcreteNumber(tNumberString)),
       expect: [
-        Empty(),
         Error(message: INVALID_INPUT_FAILURE_MESSAGE),
       ],
     );

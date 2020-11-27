@@ -6,10 +6,10 @@ import '../../../../fixtures/widget_wrapper.dart';
 
 void main() {
 
-  testWidgets('should display circular loader', (WidgetTester tester) async {
+  testWidgets('LoadingWidget should display circular loader', (WidgetTester tester) async {
 
     await tester.pumpWidget(buildWidgetWrapper(LoadingWidget()));
 
-    expect(find.byElementType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 }
