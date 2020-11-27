@@ -1,0 +1,18 @@
+version: 2.1
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    docker:
+      - image: cirrusci/flutter:stable
+    steps:
+      - checkout
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter doctor
+      - run: flutter test test
