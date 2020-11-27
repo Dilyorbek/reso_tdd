@@ -13,6 +13,5 @@ jobs:
     steps:
       - checkout
       - run: flutter pub get
-      - run: flutter analyze
       - run: flutter doctor
       - run: flutter test test
