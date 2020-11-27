@@ -1,13 +1,22 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-jobs:
-  build:
-    docker:
-      - image: cirrusci/flutter
-    steps:
-      - checkout
-      - run: flutter docker
-      - run: flutter test test
-      - run: flutter -v build apk
+workfows:
+  "develop":
+    jobs:
+      build:
+        docker:
+          - image: cirrusci/flutter
+        steps:
+          - checkout
+          - run: flutter docker
+          - run: flutter test test
+          - run: flutter -v build apk
+      test:
+        docker:
+          - image: circle/flutter
+        steps:
+          - checkout
+          - run:
+              name: Unit & Widget Tests
+              command: flutter test test
     
